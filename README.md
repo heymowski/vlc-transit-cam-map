@@ -12,4 +12,5 @@ Build on:
 
 gmaps.js - http://hpneo.github.io/gmaps/
 
-Heymowski.
+2015.05.01
+Heymowski
