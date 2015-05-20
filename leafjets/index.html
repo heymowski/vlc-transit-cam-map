@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>LeafJets Map test</title>
+</head>
+
+<!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />-->
+<link rel="stylesheet" href="leaflet.css" />
+<script src="leaflet.js"></script>
+<!--<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>-->
+<script src="js/data/cameres_transit.js"></script>
+
+<style>
+body{
+	background-color: pink;
+	margin:0px;
+}
+#map{
+	display: block;
+	float: right;
+	width: 65%;
+	height: 100Vh;
+	background-color: #444
+}
+</style>
+
+<body>
+<div id="map"></div>
+	
+</body>
+<script>
+	// create a map in the "map" div, set the view to a given place and zoom
+var map = L.map('map').setView([39.46991, -0.37629], 13);
+
+// add an OpenStreetMap tile layer
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+// add a marker in the given location, attach some popup content to it and open the popup
+/*L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
+    .openPopup();*/
+var geojsonFeature = { "type": "Feature", "properties": { "tipo": "4", "angulo": "342", "idcamara": "01504", "url_trafico": "http:\/\/camaras.valencia.es\/trafico\/itinerarios\/camarasola.asp?idcamara=01504" }, "geometry": { "type": "Point", "coordinates": [ -0.352215557288085, 39.475266406355296 ] } };
+
+
+L.geoJson(geojsonFeature).addTo(map);
+</script>
+</html>
